@@ -69,7 +69,7 @@ def ResNet34():
     return ResNet(BasicBlock, [3, 4, 6, 3])
 
 class CustomResNet(nn.Module):
-    def __init__(self, dropout_value=0.06):
+    def __init__(self, dropout_value=0.025):
         super(CustomResNet, self).__init__()
         self.preplayer = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=64, kernel_size=(3, 3), padding=1, stride=1, bias=False),
