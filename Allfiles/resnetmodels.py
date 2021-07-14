@@ -90,16 +90,16 @@ class CustomResNet(nn.Module):
             nn.ReLU()
             )
         self.layer3_x = nn.Sequential(
-            nn.Conv2d(in_channels=256, out_channels=512, kernel_size=(3, 3), padding=1, stride=1, bias=False),
+            nn.Conv2d(in_channels=256, out_channels=256, kernel_size=(3, 3), padding=1, stride=1, bias=False),
             nn.MaxPool2d(2, 2),
-            nn.BatchNorm2d(512),
+            nn.BatchNorm2d(256),
             nn.ReLU()
             )
-        self.layer3_R2 = BasicBlock(512, 512, stride=1)
+        self.layer3_R2 = BasicBlock(256, 256, stride=1)
         self.pool1 = nn.MaxPool2d(4, 4)
 
         self.output = nn.Sequential(
-            nn.Linear(512, 10)
+            nn.Linear(256, 10)
         )
 
     def forward(self, x):
@@ -115,7 +115,7 @@ class CustomResNet(nn.Module):
         layer3_out = layer3_x + layer3_r2
 
         pool1 = self.pool1(layer3_out)
-        pool1 = pool1.view(-1, 512)
+        pool1 = pool1.view(-1, 256)
 
         output = self.output(pool1)
         output = output.view(-1, 10)
