@@ -18,4 +18,4 @@ test_albumentations_transform = A.Compose([
     ToTensorV2()
 ])
 
-image_loader = ImageDataLoader(train_albumentations_transform, test_albumentations_transform, DATA_DIR, 1024, True, 'CIFAR10', figure_size=(20,10))
+image_loader = ImageDataLoader(train_albumentations_transform, test_albumentations_transform, DATA_DIR, 128, True, 'CIFAR10', figure_size=(20,10))
