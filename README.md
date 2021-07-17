@@ -1,4 +1,10 @@
 # EVA6-Assignment9-RHRF- custom ResNet architecture for CIFAR10
+
+The Team members consist of 
+1. Pratima Verma
+2. Praveen Pethurajan
+3. Mahesh.L
+
 The basic Resnet architecture is taken and customized as below.
 Below is a custom ResNet architecture for CIFAR10 that has the following architecture:
 1. PrepLayer - Conv 3x3 s1, p1) >> BN >> RELU [64k]
